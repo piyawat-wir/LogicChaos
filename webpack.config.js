@@ -51,6 +51,6 @@ module.exports = {
         port: 3000,
         // Hot-reloading, the sole reason to use webpack here <3
         hot: true,
-        //liveReload: true,
+        liveReload: true,
     },
 }
