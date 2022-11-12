@@ -133,7 +133,7 @@ const main = async () => {
 
 	window.addEventListener('keyup', (e) => {
 		e.preventDefault();
-		if (e.code == 'KeyF') {
+		if (e.code == 'KeyA') {
 			world.removeChildren();
 			makeCardWheel();
 		}
