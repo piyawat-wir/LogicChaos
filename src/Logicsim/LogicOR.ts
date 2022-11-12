@@ -18,7 +18,7 @@ export class LogicOR extends LogicComponent {
 	}
 }
 
-function drawORGate(linestyle: PIXI.ILineStyleOptions, fill = 0xffee8a): PIXI.Graphics {
+function drawORGate(linestyle: PIXI.ILineStyleOptions, fill = LogicComponent.PIXI_fill): PIXI.Graphics {
 	let g = new PIXI.Graphics();
 	let s = 20;
 

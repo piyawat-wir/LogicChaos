@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js'
-import { LogicAND } from './LogicAND';
 import { LogicComponent } from "./LogicComponent";
 import { LogicNodeDirection } from "./LogicNode";
 
@@ -19,7 +18,7 @@ export class LogicNAND extends LogicComponent {
 	}
 }
 
-function drawNANDGate(linestyle: PIXI.ILineStyleOptions, fill = 0xffee8a): PIXI.Graphics {
+function drawNANDGate(linestyle: PIXI.ILineStyleOptions, fill = LogicComponent.PIXI_fill): PIXI.Graphics {
 	let g = new PIXI.Graphics();
 	let s = 20;
 	let r = 0.5;

@@ -16,6 +16,7 @@ export abstract class LogicComponent {
 		join: PIXI.LINE_JOIN.ROUND,
 		cap: PIXI.LINE_CAP.ROUND,
 	};
+	static PIXI_fill = 0;// 0xffee8a;
 
 	constructor() {}
 	/**

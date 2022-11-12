@@ -17,7 +17,7 @@ export class LogicNOT extends LogicComponent {
 	}
 }
 
-function drawNOTGate(linestyle: PIXI.ILineStyleOptions, fill = 0xffee8a): PIXI.Graphics {
+function drawNOTGate(linestyle: PIXI.ILineStyleOptions, fill = LogicComponent.PIXI_fill): PIXI.Graphics {
 	let g = new PIXI.Graphics();
 	let s = 20;
 	let r = 0.5;

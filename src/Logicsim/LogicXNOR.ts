@@ -1,7 +1,6 @@
 import * as PIXI from 'pixi.js'
 import { LogicComponent } from "./LogicComponent";
 import { LogicNodeDirection } from "./LogicNode";
-import { LogicXOR } from './LogicXOR';
 
 export class LogicXNOR extends LogicComponent {
 
@@ -19,7 +18,7 @@ export class LogicXNOR extends LogicComponent {
 	}
 }
 
-function drawXNORGate(linestyle: PIXI.ILineStyleOptions, fill = 0xffee8a): PIXI.Graphics {
+function drawXNORGate(linestyle: PIXI.ILineStyleOptions, fill = LogicComponent.PIXI_fill): PIXI.Graphics {
 	let g = new PIXI.Graphics();
 	let s = 20;
 	let r = 0.5;
