@@ -13,7 +13,7 @@ const cardResource = {
 	WIRE: 	'card_wire.png',
 	SWITCH: 'card_switch.png',
 }
-type CardEnum = keyof typeof cardResource;
+export type CardEnum = keyof typeof cardResource;
 const cardEnum = () => {
 	let cardenum: {[Property in CardEnum]: string} = {} as {[Property in CardEnum]: string};
 	let keys = Object.keys(cardResource) as CardEnum[];
