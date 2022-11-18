@@ -1,10 +1,17 @@
 import * as PIXI from 'pixi.js'
 import { GameAssets } from './GameAssets';
 import { GameObject } from './GameObject';
+import { Player } from './Player';
 import { Renderer } from "./Renderer";
 
 type LoadedAssets = Awaited<ReturnType<typeof GameAssets.loadAssets>>;
 
+const binTo7SegMap = [
+	0b1111110, 0b0110000, 0b1101101, 0b1111001,
+	0b0110011, 0b1011011, 0b1011111, 0b1110000,
+	0b1111111, 0b1111011, 0b1110111, 0b0011111,
+	0b1001110, 0b0111101, 0b1001111, 0b1000111,
+]
 export class Game {
 
 	renderer: Renderer;
@@ -15,6 +22,9 @@ export class Game {
 	assetsLoaded = false;
 	
 	gameObjects: GameObject[] = [];
+
+	players: Player[] = [];
+	objective: Map<Player, number> = new Map();
 
 	constructor(onReady?: () => void) {
 		let app = new PIXI.Application({
@@ -55,7 +65,7 @@ export class Game {
 		this.app.start();
 		console.log(this.assets);
 	}
-	addFPSCounter() {
+	private addFPSCounter() {
 		let fps = new PIXI.Text('0', new PIXI.TextStyle({
 			fill: '#ffffff',
 			fontSize: 16,

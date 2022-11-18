@@ -1,6 +1,11 @@
 import * as PIXI from 'pixi.js'
 
-export abstract class GameObject {
+interface TickHanlder {
+	start(): void;
+	update(): void;
+	lateupdate(): void;
+}
+export abstract class GameObject implements TickHanlder {
 	abstract _PIXIobj: PIXI.DisplayObject;
 	
 	constructor() {}
@@ -12,7 +17,7 @@ export abstract class GameObject {
 	lateupdate() {}
 
 	get visible() { return this._PIXIobj.visible; }
-	set visible(val: boolean) {	this._PIXIobj.visible = val;	}
+	set visible(val: boolean) {	this._PIXIobj.visible = val; }
 	get position() { return this._PIXIobj.position; }
 	get rotation() { return this._PIXIobj.rotation; }
 	get angle() { return this._PIXIobj.angle; }
