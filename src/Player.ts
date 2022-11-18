@@ -3,7 +3,7 @@ import { CardCollectionObject } from "./CardCollectionObject";
 import { Game } from "./Game";
 
 export class Player {
-	game: Game;
+	private game: Game;
 	holdingCard: CardCollectionObject = new CardCollectionObject();
 
 	constructor(game: Game) {

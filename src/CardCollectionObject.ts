@@ -5,6 +5,7 @@ import { GameObject } from "./GameObject";
 export class CardCollectionObject extends GameObject {
 	_PIXIobj: PIXI.Container = new PIXI.Container();
 	collection: Card[] = [];
+	private cardDistance = 40; //px
 
 	constructor() {
 		super();
@@ -12,7 +13,7 @@ export class CardCollectionObject extends GameObject {
 
 	addCard(...cards: Card[]) {
 		for (let card of cards) {
-			card.position.x = this.collection.length * 20;
+			card.position.x = this.collection.length * this.cardDistance;
 			this.collection.push(card);
 			this._PIXIobj.addChild(card._PIXIobj);
 		}
@@ -25,7 +26,7 @@ export class CardCollectionObject extends GameObject {
 		}
 		for (let i = 0; i < this.collection.length; i++) {
 			let card = this.collection[i];
-			card.position.x = i * 20;
+			card.position.x = i * this.cardDistance;
 		}
 	}
 

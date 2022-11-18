@@ -23,6 +23,7 @@ export class Game {
 	
 	gameObjects: GameObject[] = [];
 
+	iPlayerTurn = 0;
 	players: Player[] = [];
 	objective: Map<Player, number> = new Map();
 
@@ -63,7 +64,17 @@ export class Game {
 
 	start() { 
 		this.app.start();
-		console.log(this.assets);
+		
+		let nPlayer = 2;
+		for (let i = 0; i < nPlayer; i++) {
+			let p = new Player(this);
+			this.addPlayer(p);
+			p.drawCard(8);
+			this.assignObjective(p, this.createObjective());
+			
+			p.holdingCard.position.set(300,150*(i+1));
+		}
+
 	}
 	private addFPSCounter() {
 		let fps = new PIXI.Text('0', new PIXI.TextStyle({
@@ -85,5 +96,17 @@ export class Game {
 	addObject(obj: GameObject) {
 		this.mainScene.addChild(obj._PIXIobj);
 		console.log(this.mainScene);
+	}
+
+	addPlayer(p: Player) {
+		this.players.push(p);
+		this.addObject(p.holdingCard);
+	}
+	createObjective() {
+		let r = Math.floor(Math.random()*binTo7SegMap.length);
+		return binTo7SegMap[r];
+	}
+	assignObjective(p: Player, o: number) {
+		this.objective.set(p, o);
 	}
 }
